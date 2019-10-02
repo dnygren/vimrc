@@ -1,3 +1,5 @@
-A vimrc file contains settings to initialize Vim with when it starts executing.
-
-On Unix systems, the file is named .vimrc, while on Windows systems it is called _vimrc. 
+vimrc README                                             D. Nygren  02 Oct 2019
+--------------------------------------------------------------------------------
+    A vimrc file contains settings to initialize the Vim editor with when it
+starts executing.  On Unix systems, the file is named .vimrc, while on Windows
+systems it is called _vimrc. 

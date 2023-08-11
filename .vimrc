@@ -31,7 +31,7 @@ endif
 " Display format options on command line
 set statusline=[%{&fo}]
 
-" This will highlight all characters greater than 80 columns in grey 
+" This will highlight all characters greater than 80 columns in grey
 "augroup vimrc_autocmds
 "  autocmd BufEnter * highlight OverLength ctermbg=red guibg=gray85
 "  autocmd BufEnter * match OverLength /\%81v.*/
@@ -48,6 +48,9 @@ set ttyfast
 
 " Set show partial command
 set showcmd
+
+" Set search matches to ignore the letter case
+set ignorecase
 
 " Set highlighting of search matches
 set hlsearch
@@ -125,7 +128,7 @@ if version >= 700
     setlocal spell spelllang=en_us
     noremap <silent> <F6> :set spell!<CR>
     inoremap <silent> <F6> <c-o>:set spell!<CR>
-    " Terminal highlight background color default was un-readable red. 
+    " Terminal highlight background color default was un-readable red.
     highlight SpellBad ctermbg=Yellow
 
     " turn on omni-completion when available
@@ -185,3 +188,12 @@ vnoremap <F9> zf
 " Vim global plugin for autoloading cscope databases, so you can invoke Vim in
 " subdirectories and still get cscope*out loaded.
 set csre
+
+" Delete all spaces and tabs at all end of lines.
+" Map to CTRL-backspace
+" : command
+" % apply to entire file
+" s search and replace
+" /\s\+$/ regex for one or more whitespace characters followed by EOL
+" // replacement value of an empty string
+nmap <silent> <c-bs> :%s/\s\+$//<cr>

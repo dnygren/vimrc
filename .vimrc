@@ -27,6 +27,7 @@ if has("syntax")
       " Global default syntax of Korn Shell
       let g:is_kornshell = 1
 endif
+autocmd BufNewFile,BufRead *.src set filetype=xhtml
 
 " Display format options on command line
 set statusline=[%{&fo}]
@@ -130,7 +131,17 @@ if version >= 700
     inoremap <silent> <F6> <c-o>:set spell!<CR>
     " Terminal highlight background color default was un-readable red.
     highlight SpellBad ctermbg=Yellow
-
+    " The standard diff colors make diff text very hard to read.
+    " Diff GUI colors
+    hi DiffAdd      gui=none    guifg=NONE          guibg=#bada9f
+    hi DiffChange   gui=none    guifg=NONE          guibg=#e5d5ac
+    hi DiffDelete   gui=bold    guifg=#ff8080       guibg=#ffb0b0
+    hi DiffText     gui=none    guifg=NONE          guibg=#8cbee2
+    " Diff terminal colors
+    hi DiffAdd      ctermfg=NONE          ctermbg=Green
+    hi DiffChange   ctermfg=NONE          ctermbg=NONE
+    hi DiffDelete   ctermfg=LightBlue     ctermbg=Red
+    hi DiffText     ctermfg=Yellow        ctermbg=Red
     " turn on omni-completion when available
     au Filetype * if exists('&omnifunc') && &omnifunc == "" |
     \ set ofu=syntaxcomplete#Complete |

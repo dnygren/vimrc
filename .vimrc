@@ -208,3 +208,32 @@ set csre
 " /\s\+$/ regex for one or more whitespace characters followed by EOL
 " // replacement value of an empty string
 nmap <silent> <c-bs> :%s/\s\+$//<cr>
+
+" ifdef.vim ifdef-highlighting plugin
+" :Define DEBUG
+" :Undefine DEBUG
+" Installed using
+" $ mkdir -p ~/.vim/pack/plugins/start
+" $ git clone https://github.com/vim-scripts/ifdef-highlighting.git \
+" ~/.vim/pack/plugins/start/ifdef-highlighting
+" Enable ifdef highlighting automatically for C and C++ files
+autocmd FileType c,cpp,cc setlocal syntax=c.ifdef
+" Default to Undefine (gray out) all words
+autocmd FileType c,cpp Undefine \k\+
+
+" vim.commentary plugin
+" Use gcc to comment out a line (takes a count),
+" gc comments out the target of a motion (e.g. gcap to comment out a paragraph)
+" gc in visual mode to comment out the selection
+" gc in operator pending mode to target a comment.
+" You can also use it as a command, either with a range like
+" :7,17Commentary, or as part of a :global invocation like with
+" :g/TODO/Commentary.
+" It uncomments, too. The above maps toggle, and gcgc uncomments a set of
+" adjacent commented lines.
+" Installed using
+" mkdir -p ~/.vim/pack/tpope/start
+" cd ~/.vim/pack/tpope/start
+" git clone https://tpope.io/vim/commentary.git
+" vim -u NONE -c "helptags commentary/doc" -c q
+filetype plugin indent on
